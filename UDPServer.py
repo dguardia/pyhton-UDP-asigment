@@ -7,8 +7,8 @@ from shortest_distance import g
 
 
 def Main():
-    #  HOST = '128.235.208.225'
-    HOST = 'localhost'
+    HOST = '128.235.208.225'
+    # HOST = 'localhost'
     PORT = 12346
     MAX = 4096
 
@@ -34,8 +34,7 @@ def Main():
     print('starting up on {} port {}'.format(*server_address))
     message =['Requested Header Information:',  'We received your headers']
 
-    first_msg = message[0]
-    second_message = message[1]
+
 
     while True:
         # Generate random number in the range of 0 to 10
@@ -43,6 +42,10 @@ def Main():
         current_time = datetime.datetime.now().time()
         print('\nwaiting to receive message...')
         data, address = s.recvfrom(MAX)
+        grabAddress = address[0]
+        print(grabAddress)
+        first_msg = grabAddress + ' ' + message[0]
+        second_message = message[1]
 
         if data == b'1':
             print("requested number:".upper(), data.decode('UTF-8'), 'from ROUTER0 address: ', address)

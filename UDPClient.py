@@ -5,24 +5,29 @@ from datetime import timedelta
 from Dijkstra import short_path
 from shortest_distance import g
 
-# HOST = '128.235.208.225'
-HOST = 'localhost'  # for testing purpose
+HOST = '128.235.209.205'
+# HOST = 'localhost'  # for testing purpose
 PORT = 12346
 MAX = 4096
 # Creating UDP socket
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 START = time.time()
 ID = '128.235.208.201'
+# ID = HOST
 
-
-myOwnId = ID
+# myOwnId = ID
 destId = '128.235.209.205'
 
 
-def printDistance(myid, destid):
-    print('From %s, to %s' % (myid, destid),
-           '\nThe cost is : %s and the the path is: %s' \
-           % short_path(g, myOwnId, destId))
+def getMyOwnIP(a):
+    ip = a.decode().split(' ', 1)
+    return ip[0]
+
+
+def printDistance(a, b):
+    print('From %s, to %s' % (a, b))
+    print('The cost is : %s and the the path is: %s' % short_path(g, a, b))
+
 
 # Bind the socket to the port
 server_address = (HOST, PORT)
@@ -44,15 +49,19 @@ try:
     sent = s.sendto(message, server_address)
     end = time.time()
     elapsed_time = end - START
-    # printDistance(ID, destId)
-    print("=================+++++==============+++++++++++===========++++====")
+    # printDistance(ID, HOST)
+    print("===============+++++==============+++++++++++===========++++====")
 
     # receive response
     data, address = s.recvfrom(MAX)
     print('from client      '.upper(), s.getsockname())
     print('from server:     {!r}'.format(data.decode()).upper(), address)
     print('Time Elapse      ', str(timedelta(seconds=elapsed_time)))
-    printDistance(ID, address)
+    # print(data.decode())
+    # print(getMyOwnIP(data))
+    # printDistance(ID, destId)
+    # printDistance(ID, address[0])
+    printDistance(getMyOwnIP(data), address[0])  # Use in the server for local access comment this line
     print("================================================================")
 finally:
     print('Sending heading information')

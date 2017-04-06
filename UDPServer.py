@@ -3,6 +3,7 @@ import socket
 import sys
 import random
 import datetime
+from shortest_distance import g
 
 
 def Main():
@@ -21,6 +22,8 @@ def Main():
 
     # Bind the socket to the port
     server_address = (HOST, PORT)
+    my_header_table = g.distances
+    print(my_header_table)
 
     try:
         s.bind(server_address)
@@ -29,7 +32,7 @@ def Main():
     print('Socket Bind completed')
     # print('Listening at', s.getsockname())
     print('starting up on {} port {}'.format(*server_address))
-    message =['Requested One here my Information:',  'We received your headers']
+    message =['Requested Header Information:',  'We received your headers']
 
     first_msg = message[0]
     second_message = message[1]
@@ -44,11 +47,11 @@ def Main():
         if data == b'1':
             print("requested number:".upper(), data.decode('UTF-8'), 'from ROUTER0 address: ', address)
             print(current_time, 'received {} bytes from {}'.format(len(data), address))
-            print('Sending message to: ', address)
+            print('Sending Header Information to: ', address)
             sent = s.sendto(first_msg.encode(), address)
             print(current_time, 'sent {} bytes back to {}'.format(sent, address))
         elif data == b'2':
-            print("requested number:".upper(), data.decode('UTF-8'), 'from address: ', address)
+            print("Received Header Information :".upper(), data.decode('UTF-8'), 'from address: ', address)
             sent = s.sendto(second_message.encode(), address)
             print(current_time, 'sent {} bytes back to {}'.format(sent, address))
             new_data, same_address = s.recvfrom(MAX)

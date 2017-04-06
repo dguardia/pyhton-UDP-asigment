@@ -21,7 +21,7 @@ destId = '128.235.209.205'
 
 def printDistance(myid, destid):
     print('From %s, to %s' % (myid, destid),
-           'The cost is : %s and the the path is: %s' \
+           '\nThe cost is : %s and the the path is: %s' \
            % short_path(g, myOwnId, destId))
 
 # Bind the socket to the port
@@ -44,13 +44,15 @@ try:
     sent = s.sendto(message, server_address)
     end = time.time()
     elapsed_time = end - START
-    printDistance(ID, destId)
+    # printDistance(ID, destId)
+    print("=================+++++==============+++++++++++===========++++====")
 
     # receive response
     data, address = s.recvfrom(MAX)
     print('from client      '.upper(), s.getsockname())
     print('from server:     {!r}'.format(data.decode()).upper(), address)
     print('Time Elapse      ', str(timedelta(seconds=elapsed_time)))
+    printDistance(ID, address)
     print("================================================================")
 finally:
     print('Sending heading information')

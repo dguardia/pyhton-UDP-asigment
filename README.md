@@ -5,7 +5,7 @@
 ### - The program has been updated to to read the ip tables to run the program:
 ####	a.- Open a terminal with afsaccess4.njit.edu an run
 
-       ```python
+       ```bash
        python UDPServer.py
        ```
 
@@ -24,7 +24,7 @@
 	   the server will start listening for any connection
 	b- after that another window terminal need to be open and
 		run:
-    ```python
+    ```bash
     pyhton UDPClient.py
     ```
 

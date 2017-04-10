@@ -5,12 +5,13 @@
 ### - The program has been updated to to read the ip tables to run the program:
 ####	a.- Open a terminal with afsaccess4.njit.edu an run
 
-       ```bash
-       python UDPServer.py
-       ```
+```python
+  $ python UDPServer.py
+
+```
 
 	b.- Open all the other servers and run
-	    pyhton UDPClient.py
+	    `pyhton UDPClient.py`
 
 	c.- The program will send the headers and find the best distance
 	    to the node.
@@ -24,7 +25,7 @@
 	   the server will start listening for any connection
 	b- after that another window terminal need to be open and
 		run:
-    ```bash
+    ```python
     pyhton UDPClient.py
     ```
 

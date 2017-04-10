@@ -6,15 +6,17 @@
 ####	a.- Open a terminal with afsaccess4.njit.edu an run
 
 ```python
-  $ python UDPServer.py
+  python UDPServer.py
 
 ```
 
-	b.- Open all the other servers and run
-	    `pyhton UDPClient.py`
+####	b.- Open all the other servers and run
+```python
+  python UDPClient.py
 
-	c.- The program will send the headers and find the best distance
-	    to the node.
+```
+
+####	c.- The program will send the headers and find the best distance to the node.
 ## END PHASE TWO
 
 # PHASE ONE
@@ -26,7 +28,8 @@
 	b- after that another window terminal need to be open and
 		run:
     ```python
-    pyhton UDPClient.py
+      python UDPClient.py
+
     ```
 
 	The program will start given results

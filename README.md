@@ -22,17 +22,22 @@
 # PHASE ONE
 
 ### -This program is a simple connection using UDP to run the program:
-	a- First need to to run UDPServer.py
-	   as: python UDPServer.py
-	   the server will start listening for any connection
-	b- after that another window terminal need to be open and
-		run:
-    ```python
-      python UDPClient.py
+####	a- First need to to run UDPServer.py as:
 
-    ```
+```python
+  python UDPServer.py
 
-	The program will start given results
-	The client need to be run every time
+```
+
+#### the server will start listening for any connection
+####	b- after that another window terminal need to be open and run:
+
+```python
+  python UDPClient.py
+
+```
+
+#####	The program will start given results
+#####	The client need to be run every time
 
 ## END PHASE ONE
